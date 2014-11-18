@@ -1,0 +1,595 @@
+$blue_color: #74ddfb;     
+$orange_color: #cf8254;
+@mixin header_button_styling {
+   	background-color: white;
+	border-radius: 0.25em;
+	width: 20%; 
+	margin: 0.25em 0; 
+	padding: 0.5em 0;
+	font-family: verdana, sans-serif;
+	font-size: 0.5em;
+	color: $blue_color;
+	vertical-align:center;	 
+	display: none; 
+	cursor: pointer; 
+}  
+
+@mixin side_column_styling {
+	height: 100%;
+	width: 20%; 	
+} 
+
+@mixin side_content_styling {
+	margin: 20% 0;	
+	height: 60%;
+	border-radius: 0.75em; 
+	animation: open 1s linear 0s;
+	-webkit-animation: open 1s linear 0s;  	
+}
+
+@mixin gradient_styling {
+	background: -moz-linear-gradient(left, $blue_color 0%, $orange_color 50%, $orange_color 100%);
+	background: -webkit-gradient(linear, left top, right bottom, color-stop(0%, $blue_color),
+		color-stop(50%, $orange_color), color-stop(100%, $orange_color)); 
+	background: -webkit-linear-gradient(left, $blue_color 0%, $orange_color 50%, $orange_color 100%); 
+	background: -o-linear-gradient(left, $blue_color 0%, $orange_color 50%, $orange_color 100%);
+	background: -ms-linear-gradient(left, $blue_color 0%, $orange_color 50%, $orange_color 100%);
+	background: linear-gradient(to right, $blue_color 0%, $orange_color 50%, $orange_color 100%);  
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#74ddfb',
+		endColorStr='#cf8254',GradientType=1);     
+} 
+
+@mixin popup_styling {
+		height: 80%;
+		position:fixed;
+		top: 12%;
+		left:0%;      
+		border-radius: 1em; 
+		width: 100%;  
+		text-align:center;
+		font-size:3em;
+		display: none; 
+		 
+		input {
+			&[type="checkbox"] {
+				transform: scale(2.0);
+				-webkit-transform: scale(2.0);
+			}
+		}   
+}  
+
+@mixin action_button_styling {
+	background-color: white;
+	border-radius:0.25em;	
+/*	padding:0.5em 0;*/
+	padding: 0.25em 0 0.5em 0;
+	font-size:1.25em;
+	width: 60%;  
+	height: 1em;
+	margin-left: 20%; 
+	text-align: center;
+	cursor: pointer;	 	
+} 
+
+html, body{
+	height: 100%; 
+} 
+
+div.ember-view {
+	height: inherit;
+}             
+
+body {
+	background-color: #eeeeee;
+	margin: 0; 
+	font-family: verdana; 
+} 
+
+header {
+	position: relative;
+	top: 0;              
+	margin: 0;
+	height: 12%;               
+	font-family: Zapf Chancery, Florence, cursive;
+	font-size: 1.5em;
+	text-align: center;
+	color: white;	
+	background-color: $orange_color; 	
+	@include gradient_styling;  	 
+	
+	h1 { 
+		height: 100%; 
+		margin: 0;
+		animation: appear 1s linear 0s;
+		-webkit-animation: appear 1s linear 0s; 
+	}     
+
+	div#title{
+		display: inline;
+	}
+
+	div#item_button{ 
+		float: left;
+		@include header_button_styling;
+		animation: slidein_from_left 1s linear 0s;
+		-webkit-animation: slidein_from_left 1s linear 0s;  	
+	}
+	
+	div#shop_button{
+		float:right;          
+		@include header_button_styling;
+		animation: slidein_from_right 1s linear 0s;
+		-webkit-animation: slidein_from_right 1s linear 0s;  	
+	}	
+} 
+
+footer {    	
+	margin: 0;
+	height: 5%;
+	background-color: $blue_color;   	
+	@include gradient_styling;  	 
+	color: white;
+	font-size: 12px; 
+	
+	p {
+		margin: 5px 0;
+	}  
+	
+	table {
+		width: 100%;
+		td#left_links {
+			float: left;
+		}
+		td#main {   
+			text-align: center;
+		}           
+		a {   
+			color: white;
+		}
+	}
+} 
+
+table#main {      
+	margin: 0;
+	width: 100%;
+	height: 100%; 
+
+	tbody{
+		height: 100%;
+	}   
+} 
+ 
+ul {
+	list-style: none;  
+	font-weight: bold;
+	p {
+		margin-bottom: 10px;
+	}
+}    
+
+li {
+	font-weight: normal;
+}     
+
+li span.faved:after {    
+	content: "\2605";
+}
+
+li span.unfaved:after {    
+	content: "\2606";			
+}
+
+a {          
+	text-decoration:none;  
+	color: #000000;
+}
+  
+div.update {    
+	@include action_button_styling;
+}  
+  
+div.add_choice {
+	text-align: center;
+	margin-top: 1em;
+	input {
+		&[type="text"] {
+			height: 2em;
+			border-radius: 0.5em;
+		}
+	}  
+	span.add_button {
+		background-color: white;
+		border-radius:1em;
+		padding: 0 0.25em 0.1em 0.25em; 
+		cursor: pointer;
+	} 
+} 
+
+div.add_choice_message {
+/*	display: none; */
+	display: block;
+	font-size: 0.8em; 
+	color: #ffffff;
+	text-align: center;
+}
+
+ul#shops {
+	color:#B16930;
+	a {           
+		color:#B16930;
+	}
+}         
+
+ul#items {
+	color:#C6F6F8;
+	a {
+		color:#C6F6F8;		
+	}
+}
+
+td#items {    
+	@include side_column_styling;
+	
+	div#items_content {
+		@include side_content_styling;
+		background-color: $orange_color;  
+		overflow-y: scroll;  		
+	}
+}  
+
+       
+td#list {
+	height:100%;   
+	width: 60%;
+  
+	div#list_content {
+		height: 83%; 
+		margin: 0;
+		border-right: 2px solid $orange_color;
+		border-left: 2px solid $blue_color;
+		overflow-y: scroll; 
+
+		ul {  
+			height:100%;
+			padding:0 2em;
+		}
+             
+		li#progress {
+			color: #FA5609;
+		}   
+		
+		li {
+/*			margin-top: 25px;
+			margin-bottom: 25px; 
+*/			margin-top: 10px;
+			margin-bottom: 10px; 
+			                  
+			td.info {                                 
+				span#shop_name {
+					color: darken($blue_color, 30%);
+					a {
+						color: darken($blue_color, 30%);
+					}   
+				}
+				span#option_name a {
+					color: $orange_color;
+				}
+			}
+			
+			td.image {   
+				#option_image {
+					height: 2.5em;
+				}				
+			}
+		}
+
+		li:nth-child(even) {
+			border-bottom: 1px solid $orange_color;
+		}                                   
+
+		li:nth-child(odd) {
+			border-bottom: 1px solid $blue_color;
+		}                                   
+	}
+
+	div#items_popup {
+		@include popup_styling; 
+	/*	background-color:#FADECE; 
+	*/	background-color:#D3A489;
+		overflow-y: scroll;  	 
+	}
+
+	div#shops_popup { 
+		@include popup_styling; 
+	/*	background-color:#C9F0FC;
+	*/	background-color:#A1CFDF;  
+		overflow-y: scroll;  	
+	}  
+	
+	div#image_popup { 
+		@include popup_styling; 
+		background-color:white;
+		width: 60%;
+		left: 20%; 
+		
+		
+		div#x_button {
+			@include action_button_styling; 
+			margin-top: 0px;
+			margin-bottom: 0px;  
+			padding-top: 0px;
+			padding-bottom: 0px; 
+			cursor: pointer;
+		}            
+		  
+		img {
+			transform: scale(0.8); 
+			-webkit-transform: scale(0.8);
+			padding-top: 0px;  
+			margin-top: 0px;
+		}  
+		
+		hr {
+			margin-bottom: 0px;
+		}
+/*		br {
+			font-size: 1em;
+		}
+*/	}  
+	
+	div#detail_popup { 
+		@include popup_styling;  
+/*		display: block;*/
+		background-color:white;
+		width: 60%;
+		left: 20%;   
+		
+		div#x_button {
+			display: inline; 
+			cursor: pointer;
+		}		
+
+		a#open_button {   
+			border: 2px solid $blue_color;  
+			box-shadow: 2px 2px $orange_color;
+			border-radius: 10px;
+			color: $orange_color;
+			border-radius: 10px;
+			font-size: 32px;
+			margin-left: 80px;
+			cursor: pointer;
+		}
+
+		hr {
+			margin: 20px;
+			border-bottom-color: lightgray;
+		}
+
+		div#fetch_site {
+			font-size: 20px;
+			color: #FA5609;
+		}   
+
+		iframe#detail_site {
+			width: 90%;
+			height: 85%; 
+			display: none;
+		}			  
+	}  
+	
+}  
+
+td#shops {
+	@include side_column_styling;
+	
+	div#shops_content {   
+		@include side_content_styling;
+		background-color: $blue_color; 
+		overflow-y: scroll;  		
+	}    
+}
+  
+@-webkit-keyframes open {
+	from { -webkit-transform: rotateX(90deg); transform:rotateX(90deg); /*-moz-transform: rotateX(90deg);*/}
+	to { -webkit-transform: rotateX(0deg); transform:rotateX(0deg); /*-moz-transform: rotateX(0deg);*/}
+}  
+
+@-webkit-keyframes appear {
+	from { opacity:0; }
+	to { opacity:1;}
+}  
+
+@-webkit-keyframes slidein_from_left {
+	from { margin-left:-100px; }
+	to { margin-left:0;}
+}  
+
+@-webkit-keyframes slidein_from_right {
+	from { margin-right:-100px; }
+	to { margin-right:0;}
+}  
+
+
+/*@media screen and (orientation: portrait) { */
+@media screen and (max-width: 1024px) and (orientation: portrait){
+/*	html,body {
+		height: intrinsic;
+	}
+*/	
+	html,body,div.ember-view {
+		height: intrinsic;
+	}
+		   
+	header { 
+/*		height: 7%; */
+		height: 3.4em;  
+		position: fixed;
+		top: 0;
+		left:0;  
+		width:100%;
+		h1 {
+			font-size: 2em;
+		}  
+
+		div#item_button {
+			font-size: 0.6em;
+			display:inline;
+		}
+
+		div#shop_button {  
+			font-size: 0.6em;
+			display:inline;
+		}        		
+	}
+	
+	footer { 
+/*		height: 6%;*/ 
+		height: 2.8em;  
+		position: fixed;
+		bottom: 0;
+		left:0;  
+		width:100%;
+		
+		font-size: 2em;  
+		p {
+/*			margin: 0.2em 0;*/
+			margin: 0; 
+		}
+	}    
+		   	
+	div.add_choice {
+		input {
+			&[type="text"] {  
+				height: 1em;
+				border-radius: 0.5em;
+				font-size:1em;
+			}
+		}  
+	}
+	
+	div.done {
+		@include action_button_styling;
+	}  
+	
+	td#list{
+	   	div#list_content {
+/*			height: 87%; */   
+			height: intrinsic;	
+			width: 100%;   
+			margin-top:3.5em;
+			margin-bottom:2.9em;
+		   	li {
+				font-size: 2.5em;
+	 		} 
+		}  
+		
+		div#detail_popup { 
+			left: 0%;
+			top: 1.8em;  
+			height: 84%;
+			width: 100%;
+			-webkit-overflow-scrolling: touch;  			 
+			overflow: auto;
+			
+			iframe#detail_site {                
+				height: 90%;
+			}			
+		}   			  	
+	}         
+		
+	td#items {
+		display:none;
+	}            
+	td#shops {
+		display:none;
+	}  	
+} 
+
+@media screen and (max-width: 1024px) and (orientation: landscape){	  
+	html,body,div.ember-view {
+		height: intrinsic;
+	}
+	  
+	header { 
+/*		height: 12%;*/ 
+		height: 2.8em;  
+		position: fixed;
+		top: 0;
+		left:0;  
+		width:100%;
+		h1 {
+			font-size: 2em;
+		}  
+
+		div#item_button {
+			font-size: 0.5em;
+			display:inline;
+		}
+
+		div#shop_button {  
+			font-size: 0.5em;
+			display:inline;
+		}        		
+	}
+	
+	footer { 
+/*		height: 6%; */
+		height: 2em;  
+		position: fixed;
+		bottom: 0;
+		left:0;  
+		width:100%;
+		
+		font-size: 1em;  
+		p {
+/*			margin: 0.2em 0;*/
+			margin: 0; 
+		}
+	}
+	   	
+	div.add_choice {
+		input {
+			&[type="text"] {  
+				height: 1em;
+				border-radius: 0.5em;
+				font-size:1em;
+			}
+		}  
+	}
+	
+	div.done {
+		@include action_button_styling;
+	}  
+	
+	td#list{ 
+	   	div#list_content {  
+/*			height: 82%;*/
+			height: intrinsic;	
+			width: 100%;   
+			margin-top:2.9em;
+			margin-bottom:2.1em;
+		   	li {
+				font-size: 1.5em;
+	 		} 
+		}  
+		
+		div#detail_popup {
+			width: 100%;
+			left: 0%;
+			
+			iframe#detail_site {
+				height: 80%;
+			}
+			 			
+		}   			   	
+		  	
+	}         
+		
+	td#items {
+		display:none;
+	}            
+	td#shops {
+		display:none;
+	}  	
+} 
+

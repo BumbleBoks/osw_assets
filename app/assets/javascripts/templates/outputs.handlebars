@@ -1,0 +1,55 @@
+<td id="items"> 
+	<div id="items_content">                         
+		{{item-column items=useOutput.items show="show_products_for_item" hide="hide_products_for_item"}}
+	</div>
+</td>
+<td id="list">
+	<header role="header">
+		<h1><div id="title">One Shop Window</div>
+			<div id="item_button" {{action 'open_item_popup' on="click"}}>Items</div> 
+			<div id="shop_button" {{action 'open_shop_popup' on="click"}}>Shops</div></h1>
+	 </header> 
+	
+	<div id="list_content">
+	 	{{#with useOutput.products controller="products"}}
+			{{view "products"}}
+		{{/with}}
+	</div>   
+	
+	<div id="image_popup">
+		{{image-popup}}
+	</div> 
+	
+	<div id="detail_popup">      
+		{{detail-popup}}
+	</div>			         
+	   		         
+		
+	<div id="items_popup"> 
+	    {{item-popup items=useOutput.items show="show_products_for_item" hide="hide_products_for_item"}}
+	</div>
+	<div id="shops_popup">                                                                              
+		{{shop-popup shops=useOutput.shops show="show_products_for_shop" hide="hide_products_for_shop"}}
+	</div>
+	
+	<footer role="footer">
+	<table>
+		<tr>  
+			<td id="left_links">
+				<p><a href="terms-of-service", target: "_blank">Terms of Service</a></p>
+			</td>
+			<td id="main"> 
+				<p>&copy;2014 OneShopWindow </p>
+			</td>	
+			<td id="right_links"> 
+				<p><a href="mailto: contact@technosaur.io">contact@technosaur.io</a></p>					
+			</td>
+		 </tr>   
+	</table>
+	</footer>
+</td>
+<td id="shops">					
+	<div id="shops_content">
+	    {{shop-column shops=useOutput.shops show="show_products_for_shop" hide="hide_products_for_shop"}} 
+	</div>
+</td>    

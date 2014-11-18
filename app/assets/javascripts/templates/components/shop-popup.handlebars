@@ -1,0 +1,11 @@
+<ul id="shops">
+<p>In Stores</p> 
+{{#each shop in shops}}
+	<li>  
+		{{shop-line shop=shop show="show_products_for_shop" hide="hide_products_for_shop"}}
+	</li>
+{{/each}} 
+</ul>
+
+<div class="done" {{action 'close_shop_popup' on="click"}}>Done</div> 
+{{add-shop}}

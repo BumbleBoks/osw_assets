@@ -1,0 +1,11 @@
+<ul id="items">
+<p>Search for</p>   
+{{#each item in items}}
+	<li>   
+		{{item-line item=item show="show_products_for_item" hide="hide_products_for_item"}}
+	</li>
+{{/each}}
+</ul>  
+
+<div class="done" {{action 'close_item_popup' on="click"}}>Done</div> 
+{{add-item}}

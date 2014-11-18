@@ -1,0 +1,5 @@
+<div class="add_choice">
+	{{input type="text" name="add_item" class="add_item" value=newItem placeholder="Add a new item" }}  
+	<span class ="add_button" {{action 'add_item' newItem on="click"}}>+</span>	
+</div>
+<div class="add_choice_message">{{add_message}}</div>     

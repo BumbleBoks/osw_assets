@@ -1,6 +1,5 @@
 class @SVGAnimation
-  constructor: (div_element, circles) -> 
-    @circles = circles 
+  constructor: () -> 
   
   setSVGAttributes: (element, attributes) ->
     for attr in Object.keys(attributes)
@@ -21,10 +20,10 @@ class @SVGAnimation
      dur: "10s", repeatCount: "indefinite"}
     blue_animate_motion = this.makeSVGElement('animateTransform', blue_animation_attributes)
     orange_animate_motion = this.makeSVGElement('animateTransform', orange_animation_attributes)
-    @circles.find("#orangecircle").append(orange_animate_motion)
-    @circles.find("#bluecircle").append(blue_animate_motion)
+    $("#svg_circles").find("#orangecircle").append(orange_animate_motion)
+    $("#svg_circles").find("#bluecircle").append(blue_animate_motion)
 
   stopAnimation : () ->
-    @circles.find("#orangecircle").find("animateTransform").remove()
-    @circles.find("#bluecircle").find("animateTransform").remove()
+    $("#svg_circles").find("#orangecircle").find("animateTransform").remove()
+    $("#svg_circles").find("#bluecircle").find("animateTransform").remove()
  

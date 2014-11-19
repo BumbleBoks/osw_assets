@@ -2,7 +2,7 @@
 
 OneSWEmber.Router.map ()->
   @resource 'outputs', path: "/"
-  OneSWEmber.SVGAnimation = new SVGAnimation($("#svg-anim"), $("#svg_circles"));
+  OneSWEmber.SVGAnimation = new SVGAnimation()
      
 OneSWEmber.OutputsRoute = Ember.Route.extend
   model: -> 

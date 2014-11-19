@@ -11,15 +11,15 @@
 	 </header> 
 	
 	<div id="list_content">
-		{{product-column products=useOutput.products}}	
+		{{product-column products=useOutput.products detail="show_detail_for_product" image="show_image_for_product"}}	
 	</div>   
 	
 	<div id="image_popup">
-		{{image-popup}}
+		{{image-popup product=useOutput.image_product}}
 	</div> 
 	
 	<div id="detail_popup">      
-		{{detail-popup}}
+		{{detail-popup product=useOutput.detail_product}}
 	</div>			         
 	   		         
 		

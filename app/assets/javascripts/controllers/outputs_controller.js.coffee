@@ -34,13 +34,30 @@ OneSWEmber.OutputsController = Ember.ArrayController.extend
     hide_products_for_shop: (shop_name) ->
       output = @model.get('firstObject')
       products = output.get('products').filterBy("shop_name", shop_name)
-      products.setEach("display", false)        
+      products.setEach("display", false) 
+
+    show_detail_for_product: (product) -> 
+      output = @model.get('firstObject')
+      output.set("detail_product", product)
+      $("#detail_popup").css("display", "block") 
+      OneSWEmber.SVGAnimation.startAnimation()  
+
+    show_image_for_product: (product) ->
+      output = @model.get('firstObject')
+      output.set("image_product", product)
+      image_element = $(event.target)
+      scale = $("#image_popup").width()/image_element.width()
+      $("#image_popup").css("display", "block")  
+      $("#image_popup").css("height", image_element.height()*scale) 
+
+  $("#detail_popup #detail_site").load () -> 
+    OneSWEmber.SVGAnimation.stopAnimation()
+    $("#detail_popup #svg-anim").css("display", "none")
+    $("#detail_popup #fetch_site p").text("")
+    $("#detail_popup #fetch_site").css("display", "none")
+    $("#detail_popup #detail_site").css("display", "inline")
 
   useOutput: (->
     @model.get('firstObject') 
   ).property()
 
-#  actions: ->
-#
-#  itemsInModel: ->
-#    this 

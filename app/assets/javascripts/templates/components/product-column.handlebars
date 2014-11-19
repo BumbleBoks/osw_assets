@@ -1,0 +1,11 @@
+<ul>
+	{{#each product in products}}  
+	    {{#if product.display}}
+			<a href="">
+				<li class="option">	
+					{{product-line product=product}}                          
+				</li>
+			</a>	
+		{{/if}}
+	{{/each}}      
+</ul>

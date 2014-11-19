@@ -1,0 +1,15 @@
+<div class="product_line"  {{action "open_detail_popup" on="click"}}>
+	<table> 
+		<td class="image"> 
+			<img id="option_image" {{action "open_image_popup" on="click" bubbles=false}} {{bind-attr src="product.image"}} 
+				{{bind-attr alt="product.image_name"}}/>
+		</td>		 	
+		<td class="info">
+			<span id="shop_name">{{product.shop_name}}</span> 
+			<span id="option_name" {{action "open_site" product.link on="click" bubbles=false}}> 
+				<a href="">{{product.name}}</a>
+			</span>			                                 
+			<br>{{product.price}}
+		</td>
+	</table>
+</div>

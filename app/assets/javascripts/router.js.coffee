@@ -25,4 +25,12 @@ OneSWEmber.OutputsRoute = Ember.Route.extend
       shop = shops.findBy("name", product.get("shop_name"))
       product.set("display", item.get('selected') && shop.get('selected'))
     )        
-    controller.set('model', model) 
+    controller.set('model', model)
+    controller.set('products', products)  
+    controller.set('items', items)  
+    controller.set('shops', shops) 
+    controller.set('detail_product', null) 
+    controller.set('image_product', null) 
+    controller.set('item_popup_open', false) 
+    controller.set('shop_popup_open', false) 
+

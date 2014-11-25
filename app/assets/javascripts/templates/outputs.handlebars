@@ -1,6 +1,6 @@
 <td id="items"> 
 	<div id="items_content">                         
-		{{item-column items=useOutput.items show="show_products_for_item" hide="hide_products_for_item"}}
+		{{item-column items=items show="show_products_for_item" hide="hide_products_for_item"}}
 	</div>
 </td>
 <td id="list">
@@ -11,23 +11,23 @@
 	 </header> 
 	
 	<div id="list_content">
-		{{product-column products=useOutput.products detail="show_detail_for_product" image="show_image_for_product"}}	
+		{{product-column products=products detail="show_detail_for_product" image="show_image_for_product"}}	
 	</div>   
 	
 	<div id="image_popup">
-		{{image-popup product=useOutput.image_product}}
+		{{image-popup product=image_product}}
 	</div> 
 	
 	<div id="detail_popup">      
-		{{detail-popup product=useOutput.detail_product}}
+		{{detail-popup product=detail_product}}
 	</div>			         
 	   		         
 		
-	<div id="items_popup"> 
-	    {{item-popup items=useOutput.items show="show_products_for_item" hide="hide_products_for_item"}}
+	<div id="items_popup" {{bind-attr class="isItemPopupOpen:open:closed"}}> 
+	    {{item-popup items=items show="show_products_for_item" hide="hide_products_for_item" close="close_item_popup"}}
 	</div>
-	<div id="shops_popup">                                                                              
-		{{shop-popup shops=useOutput.shops show="show_products_for_shop" hide="hide_products_for_shop"}}
+	<div id="shops_popup" {{bind-attr class="isShopPopupOpen:open:closed"}}>                                                                              
+		{{shop-popup shops=shops show="show_products_for_shop" hide="hide_products_for_shop" close="close_shop_popup"}}
 	</div>
 	
 	<footer role="footer">
@@ -48,6 +48,6 @@
 </td>
 <td id="shops">					
 	<div id="shops_content">
-	    {{shop-column shops=useOutput.shops show="show_products_for_shop" hide="hide_products_for_shop"}} 
+	    {{shop-column shops=shops show="show_products_for_shop" hide="hide_products_for_shop"}} 
 	</div>
 </td>    

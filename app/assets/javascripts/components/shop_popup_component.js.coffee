@@ -7,4 +7,4 @@ OneSWEmber.ShopPopupComponent = Ember.Component.extend
       this.sendAction('hide', shop_name)
 
     close_shop_popup: ->
-      $("#shops_popup").css("display", "none")
+      this.sendAction('close') 

@@ -46,12 +46,13 @@ OneSWEmber.OutputsController = Ember.ArrayController.extend
       $("#detail_popup #fetch_site").css("display", "block") 
       OneSWEmber.SVGAnimation.startAnimation()  
 
-    show_image_for_product: (product) ->
+    show_image_for_product: (product, aspect_ratio) ->
       this.set("image_product", product)
-      image_element = $(event.target)
-      scale = $("#image_popup").width()/image_element.width()
-      $("#image_popup").css("display", "block")  
-      $("#image_popup").css("height", image_element.height()*scale)
+      image_height = $("#image_popup").width()*aspect_ratio
+      $("#image_popup").css("height", image_height)
+
+    close_image_popup: ->
+      this.set("image_product", null)
       
 
   isItemPopupOpen: ((key, value) ->
@@ -67,4 +68,8 @@ OneSWEmber.OutputsController = Ember.ArrayController.extend
     else
       this.set("shop_popup_open", value)
   ).property('shop_popup_open')
-
+  
+  isImagePopupOpen: ((key, value) ->
+    if (value == undefined)
+      return !(this.get("image_product") == null)
+  ).property('image_product')

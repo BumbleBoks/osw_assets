@@ -2,7 +2,9 @@ OneSWEmber.ProductLineComponent = Ember.Component.extend
   actions:
     open_image_popup: ->   
       product = this.get('product')
-      this.sendAction("image", product)
+      image_element = $(event.target)
+      aspect_ratio = image_element.height()/image_element.width()
+      this.sendAction("image", product, aspect_ratio)
 
     open_site: (site) ->
       window.open(site)

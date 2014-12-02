@@ -14,8 +14,8 @@
 		{{product-column products=products detail="show_detail_for_product" image="show_image_for_product"}}	
 	</div>   
 	
-	<div id="image_popup">
-		{{image-popup product=image_product}}
+	<div id="image_popup" {{bind-attr class="isImagePopupOpen:open:closed"}}>
+		{{image-popup product=image_product close="close_image_popup"}}
 	</div> 
 	
 	<div id="detail_popup">      

@@ -3,6 +3,7 @@
 OneSWEmber.Router.map ()->
   @resource 'outputs', path: "/"
   OneSWEmber.SVGAnimation = new SVGAnimation()
+  OneSWEmber.set('iframe_display', false)
      
 OneSWEmber.OutputsRoute = Ember.Route.extend
   model: -> 

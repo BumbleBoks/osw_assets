@@ -1,23 +1,27 @@
 <div id="x_button" {{action 'close_detail_popup' on="click"}}>x</div> 
 <a id="open_button" target="_blank" {{bind-attr href="product.link"}}>Open</a>
 <br>      
-<hr>
-<div id="fetch_site"> 
-	<p>
-		Opening url for {{product.shop_name}} {{product.name}} ...
-	</p>
-</div>	 
-<svg id="svg-anim" xmlns="http://www.w3.org/2000/svg" version="1.1" 
-	 width="300" height="300" xmlns:xlink="http://www.w3.org/1999/xlink"> 
-	<g id="svg_circles" width="60" height="60" transform="translate(150,150)">
-		<g id="orangecircle"  transform="translate(0,0)">
-			<circle r="10" cx="20" cy="20" fill="#cf8254"></circle>
+<hr>  
+<div id="display" {{bind-attr class="isDisplayLinkLoaded:ready:waiting"}}>
+	<div id="fetch_site">
+		<p>
+			Opening url for {{product.shop_name}} {{product.name}} ...
+		</p>
+	</div>
+
+	<svg id="svg-anim" xmlns="http://www.w3.org/2000/svg" version="1.1" 
+		 width="300" height="300" xmlns:xlink="http://www.w3.org/1999/xlink">
+		<g id="svg_circles" width="60" height="60" transform="translate(150,150)">
+			<g id="orangecircle"  transform="translate(0,0)">
+				<circle r="10" cx="20" cy="20" fill="#cf8254"></circle>
+			</g>
+			<g id="bluecircle"  transform="translate(0,0)">
+				<circle r="10" cx="-20" cy="20" fill="#74ddfb"></circle>
+			</g>
 		</g>
-		<g id="bluecircle"  transform="translate(0,0)">
-			<circle r="10" cx="-20" cy="20" fill="#74ddfb"></circle>
-		</g>              
-	</g>
-</svg>  				   	
+	</svg>
         			 
-<iframe id="detail_site" scrolling="yes" {{bind-attr src="product.link"}} onload = OneSWEmber.update_detail_popup() >
-</iframe>	
+	<iframe id="detail_site" scrolling="yes" {{bind-attr src="product.link"}} onload = OneSWEmber.update_detail_popup() >
+	</iframe>
+
+</div>

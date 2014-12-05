@@ -5,12 +5,15 @@ OneSWEmber.DetailPopupComponent = Ember.Component.extend
       this.sendAction('close')
 
   set_display: ( ->
-    if (this.get("product") != null)    
-      el = $("#"+this.get("elementId"))  
-      el.find("iframe#detail_site").css("display", "none")
-      el.find("#svg-anim").css("display", "inline")
-      el.find("div#fetch_site").css("display", "block")
+    OneSWEmber.set('iframe_display', false)
+    if (this.get("product") != null)
       OneSWEmber.SVGAnimation.startAnimation()
-  ).observes('product') 
+  ).observes('product')
 
- 
+  isDisplayLinkLoaded: ((key, value) ->
+    if (value == undefined)
+      if OneSWEmber.get('iframe_display') == true
+        OneSWEmber.SVGAnimation.stopAnimation()
+      return OneSWEmber.get("iframe_display")
+  ).property('OneSWEmber.iframe_display')
+  
